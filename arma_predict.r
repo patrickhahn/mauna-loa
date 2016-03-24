@@ -11,6 +11,9 @@ plotc(co2)
 xv = c("season", 12, "trend", 1)
 e = Resid(co2, xv)
 
+# test residuals for randomness
+test(e)
+
 # This line was used to find ultimate p and q (p=5, q=3)
 # a = autofit(e, p=0:5, q=0:5)
 
