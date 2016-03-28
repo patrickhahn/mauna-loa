@@ -30,7 +30,7 @@ a = auto.arima(residuals)
 
 # Forecast 2 months ahead (March and April)
 f = forecast(a, h=2, level=95)
-#plot(f)
+plot(f)
 
 # extend trend data for next 2 timesteps
 slope = m[2] - m[1]
