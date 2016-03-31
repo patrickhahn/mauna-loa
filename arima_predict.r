@@ -29,7 +29,7 @@ print(kpss.test(residuals))
 a = auto.arima(residuals)
 
 # Forecast 2 months ahead (March and April)
-f = forecast(a, h=2, level=95)
+f = forecast(a, h=2, level= c(95, 99))
 plot(f)
 
 # extend trend data for next 2 timesteps
@@ -57,6 +57,6 @@ legend("topleft", c("Recorded", "Predicted"), pch=1, col=c(1,2))
 
 # April prediction, with lower and upper 95% bound
 april = tail(co2.predicted,1)
-print(april)
-print(april - f$mean[2] + f$lower[2]) 
-print(april - f$mean[2] + f$upper[2])
+print(c("prediction:", april))
+print(c("95% CI:", april - f$mean[2] + f$lower[3], april - f$mean[2] + f$upper[3]))
+print(c("99% CI:", april - f$mean[2] + f$lower[4], april - f$mean[2] + f$upper[4]))
