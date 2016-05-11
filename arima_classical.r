@@ -34,12 +34,15 @@ plot(f)
 
 # extend trend data for next 2 timesteps
 slope = m[2] - m[1]
+print(slope)
 m = append(m, tail(m,1) + slope)
 m = append(m, tail(m,1) + slope)
 
 # extend season data for next 2 timesteps
 s = append(s, s[length(s) - 11])
 s = append(s, s[length(s) - 11])
+amplitude = (max(s) - min(s)) / 2
+print(amplitude)
 
 # extend data with residual predictions
 y = append(residuals, f$mean)

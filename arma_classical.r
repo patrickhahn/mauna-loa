@@ -1,9 +1,12 @@
 library("itsmr")
+library("ggplot2")
 
 # Load data from .tsm file that should be located in same
 # directory as this script
 script.dir <- dirname(sys.frame(1)$ofile)
 co2 <- scan(paste(script.dir, "/maunaloa.tsm", sep=""))
+
+ggplot(co2)
 
 plotc(co2)
 
